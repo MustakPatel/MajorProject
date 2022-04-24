@@ -3,7 +3,7 @@ package com.Builder.controller;
 import com.Builder.dao.DeleteDetails;
 import com.Builder.dbconnection.ConnectionProvider;
 import com.Builder.model.LandlordsDetails;
-import com.Builder.model.Party;
+import com.Builder.model.MaterialsEntity;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,8 +23,8 @@ public class DeleteServlet extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
         String partyId = req.getParameter("id");
-        LandlordsDetails landlordsDetails = new LandlordsDetails();
-        landlordsDetails.setSiteId(Integer.parseInt(partyId));        //set value in setPartyId() method of party class
+        LandlordsDetails landlordsDetails = new LandlordsDetails();    //used for deleting landlord details
+        landlordsDetails.setSiteId(partyId);        //set value in setPartyId() method of party class
 
         DeleteDetails deleteDetails = new DeleteDetails(ConnectionProvider.getConnection());        // reference variable is created for (dao) DeleteDetails
 
@@ -33,7 +33,7 @@ public class DeleteServlet extends HttpServlet {
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Record Deleted Successfully');");
             out.println("</script>");
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("Portal.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("LandlordsServlet");
             requestDispatcher.include(req, resp);
             System.out.println("DeleteServlet successfully data delete");
 

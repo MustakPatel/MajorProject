@@ -22,12 +22,12 @@ public class UpdateDetails {
 
             String partySql = "UPDATE landlordsdetails SET siteId=?, firstName=?, lastName=?, phone=?," +
                     " sitelocation=?, district=?, eria=?, totalpayment=? " +
-                    "WHERE siteId =" + landlordsDetails.getSiteId();
+                    "WHERE siteId ='" + landlordsDetails.getSiteId()+"'";
 
 
             PreparedStatement statement1 = connection.prepareStatement(partySql);
 
-            statement1.setInt(1,landlordsDetails.getSiteId());
+            statement1.setString(1,landlordsDetails.getSiteId());
             statement1.setString(2, landlordsDetails.getFirstName());
             statement1.setString(3, landlordsDetails.getLastName());
             statement1.setString(4, landlordsDetails.getPhone());

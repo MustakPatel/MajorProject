@@ -56,7 +56,14 @@
                                 <label><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="totalPayment"  placeholder="Total Payment" />
                             </div>
-
+                           <div class="form-group">
+                               <label><i class="zmdi zmdi-email"></i></label>
+                               <input type="email" name="email" id="email" placeholder="Your Email" required/>
+                           </div>
+                           <div class="form-group">
+                               <label><i class="zmdi zmdi-lock"></i></label>
+                               <input type="password" name="password" id="pass" placeholder="Password" required/>
+                           </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Add User"/>
                             </div>

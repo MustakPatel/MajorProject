@@ -3,8 +3,6 @@ package com.Builder.controller;
 import com.Builder.dao.UpdateDetails;
 import com.Builder.dbconnection.ConnectionProvider;
 import com.Builder.model.LandlordsDetails;
-import com.Builder.model.Party;
-import com.Builder.model.UserLogin;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -24,6 +23,13 @@ public class UpdateServlet extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
 
+        HttpSession session = req.getSession();
+        String userEmailId = (String) session.getAttribute("userName");
+        if(userEmailId == null){
+            RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
+            rd.forward(req, resp);
+        }
+
         String partyId = req.getParameter("siteId");
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
@@ -35,7 +41,7 @@ public class UpdateServlet extends HttpServlet {
 
         LandlordsDetails landlordsDetails = new LandlordsDetails();
 
-        landlordsDetails.setSiteId(Integer.parseInt(partyId));
+        landlordsDetails.setSiteId(partyId);
         landlordsDetails.setFirstName(firstName);
         landlordsDetails.setLastName(lastName);
         landlordsDetails.setPhone(phone);

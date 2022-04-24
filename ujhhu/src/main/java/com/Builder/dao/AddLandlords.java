@@ -1,6 +1,7 @@
 package com.Builder.dao;
 
 import com.Builder.model.LandlordsDetails;
+import com.Builder.model.UserLogin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ public class AddLandlords {
                     "sitelocation, district, eria, totalpayment) VALUES(?,?,?,?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(partySql);
-            statement.setInt(1, landlordsDetails.getSiteId());        //value is being taken from userId() which is defined above
+            statement.setString(1, landlordsDetails.getSiteId());        //value is being taken from userId() which is defined above
             statement.setString(2, landlordsDetails.getFirstName());        //value is being taken from (model) party class
             statement.setString(3, landlordsDetails.getLastName());     //value is being taken from (model) party class
             statement.setString(4, landlordsDetails.getPhone());      //value is being taken from (model) party class
@@ -32,6 +33,30 @@ public class AddLandlords {
             statement.setString(7, landlordsDetails.getAria());      //value is being taken from (model) party class
             statement.setString(8, landlordsDetails.getTotalPayment());      //value is being taken from (model) party class
                 //value is being taken from (model) party class
+
+            statement.executeUpdate();
+
+            isUserDataInserted = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return isUserDataInserted;
+    }
+    public boolean insertLoginData(UserLogin userLogin){
+        boolean isUserDataInserted = false;
+
+        try {
+
+            String userloginSql = "INSERT INTO userlogin(mailId, password, landlordSiteId) " +
+                    "VALUES(?,?,?)";
+
+            PreparedStatement statement = connection.prepareStatement(userloginSql);
+            statement.setString(1, userLogin.getLoginId());        //value is being taken from userId() which is defined above
+            statement.setString(2, userLogin.getPassword());
+            statement.setString(3, userLogin.getPartyId());
+            //value is being taken from (model) party class
 
             statement.executeUpdate();
 

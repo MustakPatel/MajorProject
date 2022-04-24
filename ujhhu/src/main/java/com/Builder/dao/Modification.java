@@ -2,7 +2,6 @@ package com.Builder.dao;
 
 import com.Builder.dbconnection.ConnectionProvider;
 import com.Builder.model.LandlordsDetails;
-import com.Builder.model.Party;
 
 import javax.servlet.annotation.WebServlet;
 import java.sql.Connection;
@@ -28,7 +27,7 @@ public class Modification {
 
             while (resultSet.next()) {
 
-                landlordsDetails.setSiteId(resultSet.getInt(1));
+                landlordsDetails.setSiteId(resultSet.getString(1));
                 landlordsDetails.setFirstName(resultSet.getString(2));
                 landlordsDetails.setLastName(resultSet.getString(3));
                 landlordsDetails.setPhone(resultSet.getString(4));

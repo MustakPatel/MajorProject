@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 
 public class LandlordsDetails {
 
-    private int siteId;
+    private String siteId;
     private String firstName;
     private String lastName;
     private String phone;
@@ -13,11 +13,11 @@ public class LandlordsDetails {
     private String aria;
     private String totalPayment;
 
-    public int getSiteId() {
+    public String getSiteId() {
         return siteId;
     }
 
-    public void setSiteId(int siteId) {
+    public void setSiteId(String siteId) {
         this.siteId = siteId;
     }
 

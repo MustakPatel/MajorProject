@@ -26,7 +26,7 @@
                     <span class="nav_logo-name">AS Construction</span>
                 </a>
                 <div class="nav_list">
-                    <a href="#" class="nav_link">
+                    <a href="Dashboard.jsp" class="nav_link">
                         <i class='bx bx-grid-alt nav_icon'></i>
                         <span class="nav_name">Dashboard</span>
                     </a>
@@ -34,13 +34,13 @@
                         <i class='bx bx-user nav_icon'></i>
                         <span class="nav_name">Landlords</span>
                     </a>
-                    <a href="#" class="nav_link">
+                    <a href="MaterialServlet" class="nav_link">
                         <i class='bx bx-message-square-detail nav_icon'></i>
                         <span class="nav_name">Raw materials</span>
                     </a>
                     <a href="#" class="nav_link">
                         <i class='bx bx-bookmark nav_icon'></i>
-                        <span class="nav_name">Bookmark</span>
+                        <span class="nav_name">Payment Information</span>
                     </a>
                     <a href="#" class="nav_link">
                         <i class='bx bx-folder nav_icon'></i>

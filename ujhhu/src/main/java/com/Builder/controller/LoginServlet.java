@@ -39,9 +39,9 @@ public class LoginServlet extends HttpServlet {
             out.println("</script>");
 
             httpSession.setAttribute("userName", userLogin.getLoginId());
-            httpSession.setMaxInactiveInterval(2);
+            httpSession.setMaxInactiveInterval(2000);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("Portal.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("Dashboard.jsp");
             requestDispatcher.include(req, resp);
 
         } else {

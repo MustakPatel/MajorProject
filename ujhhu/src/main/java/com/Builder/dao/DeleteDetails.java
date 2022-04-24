@@ -1,7 +1,6 @@
 package com.Builder.dao;
 
 import com.Builder.model.LandlordsDetails;
-import com.Builder.model.Party;
 
 import javax.servlet.annotation.WebServlet;
 import java.sql.Connection;
@@ -23,7 +22,7 @@ public class DeleteDetails {
         boolean deletedData = false;
         try {
 
-            String partySql = "DELETE l FROM landlordsdetails l WHERE l.siteId=" + landlordsDetails.getSiteId();
+            String partySql = "DELETE l FROM landlordsdetails l WHERE l.siteId='" + landlordsDetails.getSiteId()+"'";
             String check = "SET FOREIGN_KEY_CHECKS=0;";
             Statement statement1 = connection.createStatement();
             Statement statement2 = connection.createStatement();

@@ -4,7 +4,7 @@ public class UserLogin {
 
     private String loginId;
     private String password;
-    private int partyId;
+    private String partyId;
 
     public String getLoginId() {
         return loginId;
@@ -22,11 +22,11 @@ public class UserLogin {
         this.password = password;
     }
 
-    public int getPartyId() {
+    public String getPartyId() {
         return partyId;
     }
 
-    public void setPartyId(int partyId) {
+    public void setPartyId(String partyId) {
         this.partyId = partyId;
     }
 }
