@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet">
+    <script language="javascript" type="text/javascript" src="jquery-1.8.2.js"></script>
+    <script src="js/jquery-ui-1.9.0.custom.js"></script>
+    <style>
+
+.button {
+  border-radius: 4px;
+  background-color: #14862e;
+  border: none;
+
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button a {
+  color: #fffdfd;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover{
+  background-color: #212529;
+  transition: 0.5s;
+}
+.button:hover a {
+  padding-right: 25px;
+
+}
+
+.button:hover a:after {
+  opacity: 1;
+  right: 0;
+}
+	</style>
+</head>
+<body>
+<P><button class="button" ><a href="files/firstfloor.pdf" id="trigger">WITH MATRAIL</a></button>
+    <button class="button" ><a href="files/withoutmatrel.pdf" id="trigger">WITHOUT MATRAIL</a></button>
+</P>
+<div id="dialog" style="display:none">
+    <div>
+        <embed src="files/pdfreader.pdf"></embed>
+    </div>
+</div>
+<!-- div class="container"  class="embed-responsive embed-responsive-16by9">
+	<embed src="files/firstfloor.pdf" class="embed-responsive-item" id="plugin" type="application/pdf" />
+
+</div> -->
+<script language="javascript" type="text/javascript">
+  $(document).ready(function() {
+    $('#trigger').click(function(){
+      $("#dialog").dialog();
+    });
+  });
+</script>
+</body>
+</html>
