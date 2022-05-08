@@ -38,7 +38,7 @@
                         <i class='bx bx-message-square-detail nav_icon'></i>
                         <span class="nav_name">Raw materials</span>
                     </a>
-                    <a href="#" class="nav_link">
+                    <a href="partyTransactionListServlet" class="nav_link">
                         <i class='bx bx-bookmark nav_icon'></i>
                         <span class="nav_name">Payment Information</span>
                     </a>
