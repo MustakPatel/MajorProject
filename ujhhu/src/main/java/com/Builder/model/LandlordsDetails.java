@@ -12,6 +12,30 @@ public class LandlordsDetails {
     private String district;
     private String aria;
     private String totalPayment;
+    private String paymentDetailsId;
+    private String userRegistrationId;
+    private String date;
+    private String paidDate;
+    private String description;
+    private String amount;
+    private String amountType;
+    private String remainingBalance;
+
+    public String getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(String paidDate) {
+        this.paidDate = paidDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getSiteId() {
         return siteId;
@@ -75,5 +99,52 @@ public class LandlordsDetails {
 
     public void setTotalPayment(String totalPayment) {
         this.totalPayment = totalPayment;
+    }
+    public String getPaymentDetailsId() {
+        return paymentDetailsId;
+    }
+
+    public void setPaymentDetailsId(String paymentDetailsId) {
+        this.paymentDetailsId = paymentDetailsId;
+    }
+
+    public String getUserRegistrationId() {
+        return userRegistrationId;
+    }
+
+    public void setUserRegistrationId(String userRegistrationId) {
+        this.userRegistrationId = userRegistrationId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getAmountType() {
+        return amountType;
+    }
+
+    public void setAmountType(String amountType) {
+        this.amountType = amountType;
+    }
+
+    public String getRemainingBalance() {
+        return remainingBalance;
+    }
+
+    public void setRemainingBalance(String remainingBalance) {
+        this.remainingBalance = remainingBalance;
     }
 }
