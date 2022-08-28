@@ -33,25 +33,17 @@
                     <span class="nav_logo-name">AS Construction</span>
                 </a>
                 <div class="nav_list">
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-grid-alt nav_icon'></i>
-                        <span class="nav_name">Dashboard</span>
-                    </a>
                     <a href="PersonLandlordDetails?id=<%= uname %>" class="nav_link">
                         <i class='bx bx-user nav_icon'></i>
-                        <span class="nav_name">Your Informaion</span>
+                        <span class="nav_name">Profile</span>
                     </a>
-                    <a href="personalMaterialServlet?id=<%= uname %>" class="nav_link">
-                        <i class='bx bx-message-square-detail nav_icon'></i>
-                        <span class="nav_name">Raw materials</span>
-                    </a>
-                    <a href="#" class="nav_link">
+                    <a href="personPartyTL?id=<%= uname %>" class="nav_link">
                         <i class='bx bx-bookmark nav_icon'></i>
                         <span class="nav_name">Payment Details</span>
                     </a>
-                    <a href="#" class="nav_link">
+                    <a href="PayAmount.jsp" class="nav_link">
                         <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                        <span class="nav_name">Stats</span>
+                        <span class="nav_name">Pay</span>
                     </a>
                 </div>
             </div>
@@ -62,9 +54,6 @@
         </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-50 bg-light">
-        <h4>Hello,</h4>
-    </div>
     <!--Container Main end-->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

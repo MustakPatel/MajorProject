@@ -1,8 +1,8 @@
 package com.Builder.controller;
 
-import com.Builder.dao.DisplayMaterials;
-import com.Builder.dao.DisplayPersonMaterialDetails;
-import com.Builder.model.MaterialsEntity;
+import com.Builder.dao.PartyTransactionListDetails;
+import com.Builder.dao.PersonPartyTransactionListDetails;
+import com.Builder.model.LandlordsDetails;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,27 +14,22 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/personalMaterialServlet")
-public class personalMaterialServlet extends HttpServlet {
-
+@WebServlet("/personPartyTL")
+public class PesonPartyTransactionListServlet extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
-//------------------------------use for showing data on Homepage------------------------------------
-        String email = req.getParameter("id");
-        System.out.println(email);
-
         HttpSession session = req.getSession();
         String userEmailId = (String) session.getAttribute("userName");
-        if(userEmailId == null){
+        if (userEmailId == null) {
             RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
             rd.forward(req, resp);
         }
+//------------------------------use for showing data on Homepage------------------------------------
+        ArrayList<LandlordsDetails> landlords = PersonPartyTransactionListDetails.getLandlordDetails(userEmailId);
 
-        ArrayList<MaterialsEntity> materials = DisplayPersonMaterialDetails.getMaterials(email);
-
-        req.setAttribute("materialsdata", materials);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("personalMaterials.jsp");     //(HomePage.jsp)it's main profile page
+        req.setAttribute("landlords", landlords);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("personalPartyTransactionList.jsp");     //(HomePage.jsp)it's main profile page
         requestDispatcher.include(req, resp);
 
     }

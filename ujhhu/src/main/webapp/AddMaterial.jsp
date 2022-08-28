@@ -31,10 +31,21 @@
                              <div class="form-group">
                             <select class="form-select" aria-label="Default select example" id="materialName" name="materialName">
                               <option selected>Select Material Item</option>
-                              <option value="Brick">Brick</option>
-                              <option value="Stone">Stone</option>
-                              <option value="Iron">Iron</option>
-                            </select>
+                              <option value="Brick">Bricks</option>
+                              <option value="Stone">Stones</option>
+                              <option value="Tiles">Tiles</option>
+                              <option value="Steel">Steel</option>
+                              <option value="Electrical">Electrical Items</option>
+                              <option value="Glass">Glass</option>
+                              <option value="Doors">Doors</option>
+                              <option value="Windows">Windows</option>
+                              <option value="Paint">Paint Items</option>
+                              <option value="Sand">Sand</option>
+                              <option value="BlackSand">Black River Sand</option>
+                              <option value="Gitti">Gitti</option>
+                              <option value="Muram">Muram</option>
+                              <option value="Others">Others</option>
+                             </select>
                             </div>
                             <div class="form-group">
                                 <label><i class="zmdi zmdi-account material-icons-name"></i></label>

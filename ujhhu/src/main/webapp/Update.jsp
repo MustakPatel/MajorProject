@@ -71,7 +71,7 @@
                                     <input type="text" name="totalPayment" value="<%=s.getTotalPayment()%>">
                                 </div>
                                 <div class="form-group form-button">
-                                    <input type="submit" name="update" id="signup" class="form-submit" value="Update"/>
+                                    <input type="submit" name="update" id="signup" class="form-submit" value="Save Changes"/>
                                 </div>
                                <% } %>
                             </form>
