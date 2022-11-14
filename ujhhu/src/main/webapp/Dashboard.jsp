@@ -80,7 +80,7 @@
       }
    %>
    <%@ include file="Portal.jsp" %>
-      <div class="modal fade" id="addLandloardModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="addLandlordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header bg-light">
@@ -156,7 +156,7 @@
                            </h2>
                         </div>
                         <div class="col-8 text-right">
-                           <a href="#" data-bs-toggle="modal" data-bs-target="#addLandloardModal" class="btn btn-outline-light">click here</a>
+                           <a href="#" data-bs-toggle="modal" data-bs-target="#addLandlordModal" class="btn btn-outline-light">click here</a>
                         </div>
                      </div>
                   </div>
