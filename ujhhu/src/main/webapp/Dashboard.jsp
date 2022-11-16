@@ -84,7 +84,7 @@
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header bg-light">
-                  <h5 class="modal-title" id="exampleModalLabel">Add new Landlord</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Landlord</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal"
                      aria-label="Close"></button>
                </div>
@@ -140,6 +140,70 @@
             </div>
          </div>
       </div>
+      <div class="modal fade" id="addMaterialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header bg-light">
+                  <h5 class="modal-title" id="exampleModalLabel">Material</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                     aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <!-- Sign up form -->
+                  <form method="get" action="addMaterialServlet" class="register-form" id="material-form">
+                     <div class="form-group">
+                        <label for="siteId" class="col-form-label">Enter Site Id</label>
+                        <input type="text" class="form-control" name="siteId" required/>
+                     </div>
+                     <div class="form-group">
+                        <label for="materialName" class="col-form-label">Materials</label>
+                        <select class="form-select" aria-label="Default select example" id="materialName" name="materialName">
+                           <option selected>Select Material Item</option>
+                           <option value="Brick">Bricks</option>
+                           <option value="Stone">Stones</option>
+                           <option value="Tiles">Tiles</option>
+                           <option value="Steel">Steel</option>
+                           <option value="Electrical">Electrical Items</option>
+                           <option value="Glass">Glass</option>
+                           <option value="Doors">Doors</option>
+                           <option value="Windows">Windows</option>
+                           <option value="Paint">Paint Items</option>
+                           <option value="Sand">Sand</option>
+                           <option value="BlackSand">Black River Sand</option>
+                           <option value="Gitti">Gitti</option>
+                           <option value="Muram">Muram</option>
+                           <option value="Others">Others</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <label for="siteId" class="col-form-label">supplier Name</label>
+                        <input type="text" class="form-control" name="supplier" required/>
+                     </div>
+                     <div class="form-group">
+                        <label for="siteId" class="col-form-label">Rate</label>
+                        <input type="text" class="form-control" name="Rate" required/>
+                     </div>
+                     <div class="form-group">
+                        <label for="siteId" class="col-form-label">Quantity</label>
+                        <input type="text" class="form-control" name="Quantity" />
+                     </div>
+                     <div class="form-group">
+                        <label for="siteId" class="col-form-label">Purchase Date</label>
+                        <input type="text" class="form-control" name="PurchaseDate"/>
+                     </div>
+                     <div class="form-group">
+                        <label for="siteId" class="col-form-label">Total Payment</label>
+                        <input type="text" class="form-control" name="TotalPayment" />
+                     </div>
+                  </form>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <input type="submit" form="material-form" name="signup" id="signup" class="form-submit btn btn-primary" value="Save changes"/>
+               </div>
+            </div>
+         </div>
+      </div>
       <div class="col-md-12 ">
          <div class="row ">
             <div class="col-xl-3 col-lg-6">
@@ -176,8 +240,7 @@
                            </h2>
                         </div>
                         <div class="col-8 text-right">
-                           <a href="AddMaterial.jsp" class="btn btn-outline-warning">click here</a>
-                        </div>
+                           <a href="#" data-bs-toggle="modal" data-bs-target="#addMaterialModal" class="btn btn-outline-light">click here</a>                        </div>
                      </div>
                   </div>
                </div>
