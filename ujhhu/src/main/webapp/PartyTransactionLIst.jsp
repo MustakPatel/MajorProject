@@ -29,7 +29,7 @@
             <div class="table-title">
                 <div class="row">
                  <div class="d-flex justify-content-start col-sm-4">
-                       <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href="AddPaymentTransaction.jsp" class="text-decoration-none text-light">Add New</a></button>
+                       <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href="AddPaymentTransaction" class="text-decoration-none text-light">Add New</a></button>
                  </div>
                     <div class="col-sm-8"><h2>Transaction <b>Details</b></h2></div>
                 </div>
