@@ -18,8 +18,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="js/custom.js"></script>
 </head>
-<body>
+<body ng-app="mymodal" ng-controller="MainCtrl">
 <% ArrayList<MaterialsEntity> std = (ArrayList<MaterialsEntity>) request.getAttribute("materialsdata");%>
 <%@ include file="Portal.jsp" %>
 
@@ -59,8 +61,9 @@
                         <td> <%=s.getDate()%></td>
                         <td> <%=s.getTotalPayment()%></td>
                         <td>
+                            <material visible="showModal"></material>
                             <a href="MaterialModifyServlet?id=<%=s.getMaterialid()%>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="MaterialsDeleteServlet?id=<%=s.getMaterialid()%>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a href="#" ng-click="toggleModal('<%=s.getMaterialid()%>')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
                  <% } %>

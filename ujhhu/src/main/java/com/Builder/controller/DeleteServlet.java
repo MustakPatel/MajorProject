@@ -30,9 +30,6 @@ public class DeleteServlet extends HttpServlet {
 
         if (deleteDetails.isDeleteDetails(landlordsDetails)) {       //in isDeleteDetails() sql delete operation will be performed
 
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Record Deleted Successfully');");
-            out.println("</script>");
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("LandlordsServlet");
             requestDispatcher.include(req, resp);
             System.out.println("DeleteServlet successfully data delete");
