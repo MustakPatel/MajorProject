@@ -13,13 +13,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Main css -->
-    <link rel="stylesheet" href="Admin/css/HomePage.css">
+<link rel="stylesheet" href="Admin/css/HomePage.css">
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="js/custom.js"></script>
 </head>
-<body>
+<body ng-app="mymodal" ng-controller="MainCtrl">
 <% ArrayList<LandlordsDetails> std = (ArrayList<LandlordsDetails>) request.getAttribute("landlords");%>
 <%@ include file="Portal.jsp" %>
 
@@ -122,8 +124,9 @@
                         <td> <%=s.getAria()%></td>
                         <td> <%=s.getTotalPayment()%></td>
                         <td>
+                            <modal visible="showModal"></modal>
                             <a href="ModifyServlet?id=<%=s.getSiteId()%>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="DeleteServlet?id=<%=s.getSiteId()%>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a href="#" ng-click="toggleModal('<%=s.getSiteId()%>')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
                  <% } %>

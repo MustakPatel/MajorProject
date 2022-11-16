@@ -20,7 +20,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<% ArrayList<MaterialsEntity> std = (ArrayList<MaterialsEntity>) request.getAttribute("materialsdata");%>
+<% ArrayList<LandlordsDetails> std = (ArrayList<LandlordsDetails>) request.getAttribute("landlords");%>
 <%@ include file="LandlordPortal.jsp" %>
 
 <div class="container-lg">
@@ -28,8 +28,9 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-
-                    <div class="col-sm-8"><h2>Your Materials <b>Details</b></h2></div>
+                 <div class="d-flex justify-content-start col-sm-4">
+                 </div>
+                    <div class="col-sm-8"><h2>Transaction <b>Details</b></h2></div>
 
                 </div>
             </div>
@@ -37,24 +38,24 @@
                 <thead>
                     <tr>
                         <th>Site Id</th>
-                        <th>Material name</th>
-                        <th>Rate</th>
-                        <th>Quantity</th>
-                        <th>Purchase Date</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Total Payment</th>
-
+                        <th>Due Balance</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                 <% for(MaterialsEntity s:std){%>
+                 <% for(LandlordsDetails s:std){%>
                     <tr>
                         <td> <%=s.getSiteId()%></td>
-                        <td> <%=s.getMaterialName()%></td>
-                        <td> <%=s.getRate()%></td>
-                        <td> <%=s.getQuantity()%></td>
-                        <td> <%=s.getDate()%></td>
+                        <td> <%=s.getFirstName()%></td>
+                        <td> <%=s.getLastName()%></td>
                         <td> <%=s.getTotalPayment()%></td>
-
+                        <td> <%=s.getRemainingBalance()%></td>
+                        <td>
+                            <a href="transactionHistory?id=<%=s.getSiteId()%>"  title="Veiw all Transactions" data-toggle="tooltip">View Transaction history</a>
+                        </td>
                     </tr>
                  <% } %>
                </tbody>

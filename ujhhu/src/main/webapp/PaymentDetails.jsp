@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page import="com.Builder.model.*" %>
+<%@ page import="com.Builder.model.LandlordsDetails" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,6 +64,7 @@
  </head>
  <body>
  <% ArrayList<LandlordsDetails> std = (ArrayList<LandlordsDetails>) request.getAttribute("landlords");%>
+ <% LandlordsDetails siteDetails = std.get(0);%>
  <%@ include file="Portal.jsp" %>
     <div class="container">
         <div class="row">
@@ -70,12 +72,16 @@
                 <div class="card">
                     <div class="card-body">
                       <div class="row">
-                                       <div class="d-flex justify-content-start col-sm-4">
-                                             <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href="AddPaymentTransaction.jsp" class="text-decoration-none text-light">Add New</a></button>
-                                       </div>
-                                          <div class="col-sm-8"><h4>Transaction <b>History</b></h4></div>
-
-                                      </div><br>
+                      <div class="d-flex justify-content-start col-sm-4">
+                          <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href="AddPaymentTransaction" class="text-decoration-none text-light">Add New</a></button>
+                      </div>
+                      <div class="col-sm-4">
+                        <h4>Transaction <b>History</b></h4>
+                      </div>
+                      <div class="col-sm-4">
+                           <button type="button" class="btn btn-info float-right add-new"><i class="fa fa-plus"></i><a href="GeneratePDF?id=<%=siteDetails.getSiteId()%>" class="text-decoration-none text-light">PDF</a></button>
+                      </div>
+                    </div><br>
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
                                 <thead>
@@ -102,9 +108,9 @@
                                         <td> <%=s.getAmount()%></td>
 
                                         <td>
-                                                                    <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                                                </td>
+                                           <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                           <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                        </td>
                                     </tr>
                                    <% } %>
                                 </tbody>
