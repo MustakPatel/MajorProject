@@ -214,12 +214,7 @@
                         <h5 class="card-title mb-0">New Landlord</h5>
                      </div>
                      <div class="row align-items-center mb-2 d-flex">
-                        <div class="col-4">
-                           <h2 class="d-flex align-items-center mb-0">
-                              8
-                           </h2>
-                        </div>
-                        <div class="col-8 text-right">
+                        <div class="col-12 text-right">
                            <a href="#" data-bs-toggle="modal" data-bs-target="#addLandlordModal" class="btn btn-outline-light">click here</a>
                         </div>
                      </div>
@@ -234,13 +229,9 @@
                         <h5 class="card-title mb-0">New Material</h5>
                      </div>
                      <div class="row align-items-center mb-2 d-flex">
-                        <div class="col-4">
-                           <h2 class="d-flex align-items-center mb-0">
-                              32
-                           </h2>
+                        <div class="col-12 text-right">
+                           <a href="#" data-bs-toggle="modal" data-bs-target="#addMaterialModal" class="btn btn-outline-light">click here</a>
                         </div>
-                        <div class="col-8 text-right">
-                           <a href="#" data-bs-toggle="modal" data-bs-target="#addMaterialModal" class="btn btn-outline-light">click here</a>                        </div>
                      </div>
                   </div>
                </div>
@@ -253,14 +244,9 @@
                         <h5 class="card-title mb-0">New Transaction</h5>
                      </div>
                      <div class="row align-items-center mb-2 d-flex">
-                        <div class="col-4">
-                           <h2 class="d-flex align-items-center mb-0">
-                              48
-                           </h2>
-                        </div>
-                        <div class="col-8 text-right">
-                           <a href="#" class="btn btn-outline-light">click here</a>
-                        </div>
+                            <div class="col-12 text-right">
+                                <a href="#" class="btn btn-outline-light">click here</a>
+                            </div>
                      </div>
                   </div>
                </div>
