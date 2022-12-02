@@ -1,7 +1,9 @@
 package com.Builder.controller;
 
 import com.Builder.dao.CheckLogin;
+import com.Builder.dao.DisplayLandlords;
 import com.Builder.dbconnection.ConnectionProvider;
+import com.Builder.model.LandlordsDetails;
 import com.Builder.model.UserLogin;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,9 +14,37 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
+    UserLogin userLogin = new UserLogin();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+
+        CheckLogin checkLogin = new CheckLogin(ConnectionProvider.getConnection());
+        HttpSession httpSession = req.getSession(true);
+
+        if (checkLogin.isValidateData(userLogin)) {
+            httpSession.setAttribute("userName", userLogin.getLoginId());
+            httpSession.setMaxInactiveInterval(2000);
+            ArrayList<LandlordsDetails> landlords = DisplayLandlords.getStudent();
+            req.setAttribute("landlords", landlords);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("Dashboard.jsp");
+            requestDispatcher.include(req, resp);
+
+        } else {
+            //it's login page
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("Login.jsp");
+            requestDispatcher.include(req, resp);
+
+        }
+
+
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,7 +55,6 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        UserLogin userLogin = new UserLogin();
         userLogin.setLoginId(email);
         userLogin.setPassword(password);
 
@@ -40,7 +69,8 @@ public class LoginServlet extends HttpServlet {
 
             httpSession.setAttribute("userName", userLogin.getLoginId());
             httpSession.setMaxInactiveInterval(2000);
-
+            ArrayList<LandlordsDetails> landlords = DisplayLandlords.getStudent();
+            req.setAttribute("landlords", landlords);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("Dashboard.jsp");
             requestDispatcher.include(req, resp);
 

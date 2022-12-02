@@ -23,6 +23,7 @@
 </head>
 <body ng-app="mymodal" ng-controller="MainCtrl">
 <% ArrayList<MaterialsEntity> std = (ArrayList<MaterialsEntity>) request.getAttribute("materialsdata");%>
+<% ArrayList<LandlordsDetails> landlordList = (ArrayList<LandlordsDetails>) request.getAttribute("landlords");%>
 <%@ include file="Portal.jsp" %>
 <div class="modal fade" id="addMaterialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog">
@@ -36,8 +37,13 @@
             <!-- Sign up form -->
             <form method="get" action="addMaterialServlet" class="register-form" id="material-form">
                <div class="form-group">
-                  <label for="siteId" class="col-form-label">Enter Site Id</label>
-                  <input type="text" class="form-control" name="siteId" required/>
+                  <label for="siteId" class="col-form-label">Site Id</label>
+                  <select class="form-select form-control" aria-label="Default select example" id="siteId" name="siteId" required>
+                    <option selected>Select Site Item</option>
+                    <% for(LandlordsDetails landlord : landlordList){%>
+                        <option><%=landlord.getSiteId()%></option>
+                    <% } %>
+                  </select>
                </div>
                <div class="form-group">
                   <label for="materialName" class="col-form-label">Materials</label>

@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page import="com.Builder.model.*" %>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -72,6 +74,7 @@
       </style>
    </head>
    <body>
+   <% ArrayList<LandlordsDetails> landlordList = (ArrayList<LandlordsDetails>) request.getAttribute("landlords");%>
    <%
      String userEmailId = (String) session.getAttribute("userName");
       if(userEmailId == null){
@@ -152,8 +155,13 @@
                   <!-- Sign up form -->
                   <form method="get" action="addMaterialServlet" class="register-form" id="material-form">
                      <div class="form-group">
-                        <label for="siteId" class="col-form-label">Enter Site Id</label>
-                        <input type="text" class="form-control" name="siteId" required/>
+                        <label for="siteId" class="col-form-label">Site Id</label>
+                        <select class="form-select form-control" aria-label="Default select example" id="siteId" name="siteId" required>
+                            <option selected>Select Site Item</option>
+                            <% for(LandlordsDetails landlord : landlordList){%>
+                                <option><%=landlord.getSiteId()%></option>
+                            <% } %>
+                        </select>
                      </div>
                      <div class="form-group">
                         <label for="materialName" class="col-form-label">Materials</label>

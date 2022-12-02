@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page import="com.Builder.model.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +28,7 @@
                     <span class="nav_logo-name">AS Construction</span>
                 </a>
                 <div class="nav_list">
-                    <a href="Dashboard.jsp" class="nav_link">
+                    <a href="loginServlet" class="nav_link">
                         <i class='bx bx-grid-alt nav_icon'></i>
                         <span class="nav_name">Dashboard</span>
                     </a>

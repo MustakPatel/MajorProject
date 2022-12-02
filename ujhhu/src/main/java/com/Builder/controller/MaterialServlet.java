@@ -28,8 +28,10 @@ public class MaterialServlet extends HttpServlet {
         }
 //------------------------------use for showing data on Homepage------------------------------------
         ArrayList<MaterialsEntity> materials = DisplayMaterials.getMaterials();
+        ArrayList<LandlordsDetails> landlords = DisplayLandlords.getStudent();
 
         req.setAttribute("materialsdata", materials);
+        req.setAttribute("landlords", landlords);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("Materials.jsp");     //(HomePage.jsp)it's main profile page
         requestDispatcher.include(req, resp);
 
