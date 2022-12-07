@@ -8,12 +8,18 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Sign Up Form</title>
       <!-- Font Icon -->
+          <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+         <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <!-- Main css -->
       <link rel="stylesheet" href="Admin/css/HomePage.css">
       <link rel="stylesheet" href="Admin/css/style.css">
+          <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+          <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
       <style>
          body {
          background-color: #f5f7fa;
@@ -197,7 +203,7 @@
                      </div>
                      <div class="form-group">
                         <label for="siteId" class="col-form-label">Purchase Date</label>
-                        <input type="text" class="form-control" name="PurchaseDate"/>
+                        <input type="text" class="form-control" id="datepicker" width="280" name="PurchaseDate"/>
                      </div>
                      <div class="form-group">
                         <label for="siteId" class="col-form-label">Total Payment</label>
@@ -382,6 +388,11 @@
             </div>
          </div>
       </div>
+       <script>
+              $('#datepicker').datepicker({
+                  uiLibrary: 'bootstrap4'
+              });
+      </script>
       <!-- JS -->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="js/main.js"></script>

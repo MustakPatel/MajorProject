@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 <!-- Main css -->
 <link rel="stylesheet" href="Admin/css/LoginStyle.css">
 
@@ -19,6 +21,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- Font Icon -->
 <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+
 </head>
 <body>
 <% ArrayList<MaterialsEntity> std = (ArrayList<MaterialsEntity>) request.getAttribute("userData");%>
@@ -36,7 +40,7 @@
 
                                  <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="siteId" value="<%=s.getSiteId()%>">
+                                    <input type="text" name="siteId" value="<%=s.getSiteId()%>" readonly>
                                  </div>
 
                                 <div class="form-group">
@@ -61,7 +65,7 @@
 
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-city"></i></label>
-                                    <input type="text" name="date" value="<%=s.getDate()%>">
+                                    <input type="text" name="date" id="datepicker" width="280" value="<%=s.getDate()%>">
                                 </div>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-city"></i></label>
@@ -81,6 +85,10 @@
             </div>
         </section>
  </div>
-
+ <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+</script>
 </body>
 </html>

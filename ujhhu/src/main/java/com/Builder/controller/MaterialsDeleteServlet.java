@@ -38,23 +38,17 @@ public class MaterialsDeleteServlet extends HttpServlet {
         MaterialsDeleteDetails materialsDeleteDetails = new MaterialsDeleteDetails(ConnectionProvider.getConnection());        // reference variable is created for (dao) DeleteDetails
 
         if (materialsDeleteDetails.isDeleteDetails(materialsEntity)) {       //in isDeleteDetails() sql delete operation will be performed
-
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Record Deleted Successfully');");
-            out.println("</script>");
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("MaterialServlet");
             requestDispatcher.include(req, resp);
             System.out.println("DeleteServlet successfully data delete");
 
         } else {
-
             out.println("<script type=\"text/javascript\">");
             out.println("There is a problem in Deleting Record.');");
             out.println("</script>");
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("profile");
             requestDispatcher.include(req, resp);
             System.out.println(" failed data update");
-
         }
 
     }
