@@ -260,7 +260,7 @@ body {
                       <div class="col-sm-7">
                       <div class="card-block">
                               <h4 class="card-title">View black River Sand</h4>
-                              <a href="supplierList?mname=muram" class="btn btn-primary btn-sm">View Records</a>
+                              <a href="supplierList?mname=BlackSand" class="btn btn-primary btn-sm">View Records</a>
                       </div>
                        </div>
               </div>

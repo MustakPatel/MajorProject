@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet("/addTransactionServlet")
 public class AddTransactionServlet extends HttpServlet {
@@ -30,13 +32,18 @@ public class AddTransactionServlet extends HttpServlet {
         String paidDate = req.getParameter("paidDate");
         String amount = req.getParameter("amount");
 
+        String date = paidDate.replace("/", "-");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        date = LocalDate.parse(date, formatter).format(formatter2);
 
         LandlordsDetails transactionDetails = new LandlordsDetails();
 //        ----------------- value is being taken in landlordsDetails setter --------------------------------------
         transactionDetails.setSiteId(siteId);
         transactionDetails.setDescription(description);
         transactionDetails.setAmountType(paymentType);
-        transactionDetails.setPaidDate(paidDate);
+        transactionDetails.setPaidDate(date);
         transactionDetails.setAmount(amount);
 
 

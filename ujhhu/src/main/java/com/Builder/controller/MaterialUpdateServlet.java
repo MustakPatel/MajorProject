@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet("/MaterialUpdateServlet")
 public class MaterialUpdateServlet extends HttpServlet {
@@ -41,6 +43,12 @@ public class MaterialUpdateServlet extends HttpServlet {
         String payment = req.getParameter("payment");
         String materialId = req.getParameter("materialId");
 
+        String purchaseDate = date.replace("/", "-");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        purchaseDate = LocalDate.parse(purchaseDate, formatter).format(formatter2);
+
         MaterialsEntity materialsEntity = new MaterialsEntity();
 
         materialsEntity.setSiteId(partyId);
@@ -48,7 +56,7 @@ public class MaterialUpdateServlet extends HttpServlet {
         materialsEntity.setSupplier(supplier);
         materialsEntity.setRate(rate);
         materialsEntity.setQuantity(quantity);
-        materialsEntity.setDate(date);
+        materialsEntity.setDate(purchaseDate);
         materialsEntity.setTotalPayment(payment);
         materialsEntity.setMaterialid(materialId);
         System.out.println(materialsEntity.getMaterialid());

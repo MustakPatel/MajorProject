@@ -12,14 +12,15 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <!-- Main css -->
-    <link rel="stylesheet" href="Admin/css/HomePage.css">
-
+ <link rel="stylesheet" href="Admin/css/HomePage.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
 </head>
 <body ng-app="mymodal" ng-controller="MainCtrl">
 <% ArrayList<MaterialsEntity> std = (ArrayList<MaterialsEntity>) request.getAttribute("materialsdata");%>
@@ -79,11 +80,7 @@
                </div>
                <div class="form-group">
                   <label for="siteId" class="col-form-label">Purchase Date</label>
-                  <input type="text" class="form-control" name="PurchaseDate"/>
-               </div>
-               <div class="form-group">
-                  <label for="siteId" class="col-form-label">Total Payment</label>
-                  <input type="text" class="form-control" name="TotalPayment" />
+                  <input id="datepicker" width="280" name="PurchaseDate"/>
                </div>
             </form>
          </div>
@@ -140,6 +137,10 @@
         </div>
     </div>
 </div>
-
+ <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+</script>
 </body>
 </html>
