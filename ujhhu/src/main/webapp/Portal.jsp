@@ -48,9 +48,9 @@
                         <i class='bx bx-folder nav_icon'></i>
                         <span class="nav_name">Home Screen</span>
                     </a>
-                    <a href="ImportData.jsp" class="nav_link">
+                    <a href="#" class="nav_link">
                         <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                        <span class="nav_name">Import Landlords</span>
+                        <span class="nav_name">Stats</span>
                     </a>
                     <a href="Logout" class="nav_link">
                         <i class='bx bx-log-out nav_icon'></i>
@@ -61,11 +61,11 @@
 
         </nav>
     </div>
-    <!--Container Main start
+    <!--Container Main start-->
     <div class="height-50 bg-light">
         <h4>Hello, Mr. Afjal Patel</h4>
     </div>
-    Container Main end-->
+    <!--Container Main end-->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

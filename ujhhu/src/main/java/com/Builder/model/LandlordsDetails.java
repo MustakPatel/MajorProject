@@ -147,26 +147,4 @@ public class LandlordsDetails {
     public void setRemainingBalance(String remainingBalance) {
         this.remainingBalance = remainingBalance;
     }
-
-    @Override
-    public String toString() {
-        return "LandlordsDetails{" +
-                "siteId='" + siteId + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", siteLocation='" + siteLocation + '\'' +
-                ", district='" + district + '\'' +
-                ", aria='" + aria + '\'' +
-                ", totalPayment='" + totalPayment + '\'' +
-                ", paymentDetailsId='" + paymentDetailsId + '\'' +
-                ", userRegistrationId='" + userRegistrationId + '\'' +
-                ", date='" + date + '\'' +
-                ", paidDate='" + paidDate + '\'' +
-                ", description='" + description + '\'' +
-                ", amount='" + amount + '\'' +
-                ", amountType='" + amountType + '\'' +
-                ", remainingBalance='" + remainingBalance + '\'' +
-                '}';
-    }
 }
