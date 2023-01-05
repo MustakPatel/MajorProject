@@ -123,6 +123,8 @@ public class AddLandlordServlet extends HttpServlet {
         if (addLandlords.insertUser(landlordsDetails) && addLandlords.insertLoginData(userLogin)) {       //if both condition true
             sendMail(landlordsDetails, userLogin);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("LandlordsServlet");        //its login page
+            boolean isTostActivate = true;
+            req.setAttribute("isTostActivate", isTostActivate);
             requestDispatcher.forward(req, resp);
 
         } else {

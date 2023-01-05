@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <!-- Main css -->
  <link rel="stylesheet" href="Admin/css/HomePage.css">
@@ -142,5 +143,48 @@
             uiLibrary: 'bootstrap4'
         });
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/jquery.toaster.js"></script>
+    <% Boolean isMaterialTostActivate = (Boolean) request.getAttribute("isMaterialTostActivate");
+        Boolean isDeleteTostActivate = (Boolean) request.getAttribute("isDeleteTostActivate");
+     if (isMaterialTostActivate == null && isDeleteTostActivate == null) {
+           isMaterialTostActivate = false;
+           isDeleteTostActivate = false;
+     } else{%>
+         <script>
+             var interval;
+             var codetmpl = "<code>%codeobj%</code><br><code>%codestr%</code>";
+             $(document).ready(function ()
+             {
+               randomToast();
+             });
+   
+             function start ()
+             {
+               if (!interval)
+               {
+                   interval = setInterval(function ()
+               	{
+               		randomToast();
+               		clearInterval(interval);
+               		interval = false;
+               	}, 1500);
+               }
+             }
+   
+             function randomToast ()
+             {
+               var priority = 'success';
+               <% if(isMaterialTostActivate != null && isMaterialTostActivate == true) { %>
+               	var title    = 'Successfully';
+               	var message  = 'Added Material!';
+               <% } else if(isDeleteTostActivate != null && isDeleteTostActivate == true) { %>
+                    var title    = 'Successfully';
+                    var message  = 'Deleted Material!';
+               <% }%>
+               $.toaster({ priority : priority, title : title, message : message });
+             }
+         </script>
+     <%}%>
 </body>
 </html>

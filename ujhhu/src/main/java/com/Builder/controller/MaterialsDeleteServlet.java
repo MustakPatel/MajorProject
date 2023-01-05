@@ -39,13 +39,12 @@ public class MaterialsDeleteServlet extends HttpServlet {
 
         if (materialsDeleteDetails.isDeleteDetails(materialsEntity)) {       //in isDeleteDetails() sql delete operation will be performed
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("MaterialServlet");
-            requestDispatcher.include(req, resp);
+            boolean isDeleteTostActivate = true;
+            req.setAttribute("isDeleteTostActivate", isDeleteTostActivate);
+            requestDispatcher.forward(req, resp);
             System.out.println("DeleteServlet successfully data delete");
-
         } else {
-            out.println("<script type=\"text/javascript\">");
-            out.println("There is a problem in Deleting Record.');");
-            out.println("</script>");
+
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("profile");
             requestDispatcher.include(req, resp);
             System.out.println(" failed data update");

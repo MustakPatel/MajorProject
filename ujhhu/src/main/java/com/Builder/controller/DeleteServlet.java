@@ -29,16 +29,14 @@ public class DeleteServlet extends HttpServlet {
         DeleteDetails deleteDetails = new DeleteDetails(ConnectionProvider.getConnection());        // reference variable is created for (dao) DeleteDetails
 
         if (deleteDetails.isDeleteDetails(landlordsDetails)) {       //in isDeleteDetails() sql delete operation will be performed
-
+            boolean isDeleteTostActivate = true;
+            req.setAttribute("isDeleteTostActivate", isDeleteTostActivate);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("LandlordsServlet");
-            requestDispatcher.include(req, resp);
+            requestDispatcher.forward(req, resp);
             System.out.println("DeleteServlet successfully data delete");
 
         } else {
 
-            out.println("<script type=\"text/javascript\">");
-            out.println("There is a problem in Deleting Record.');");
-            out.println("</script>");
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("profile");
             requestDispatcher.include(req, resp);
             System.out.println(" failed data update");
