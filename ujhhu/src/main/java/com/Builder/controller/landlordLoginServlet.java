@@ -47,13 +47,10 @@ public class landlordLoginServlet extends HttpServlet {
             requestDispatcher.include(req, resp);
 
         } else {
-
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('User or password incorrect please try again!');");
-            out.println("</script>");
-
+            boolean isNotCorrectUser = true;
+            req.setAttribute("isNotCorrectUser", isNotCorrectUser);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("LandlordLogin.jsp");        //it's login page
-            requestDispatcher.include(req, resp);
+            requestDispatcher.forward(req, resp);
 
         }
     }

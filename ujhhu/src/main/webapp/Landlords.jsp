@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <!-- Main css -->
 <link rel="stylesheet" href="Admin/css/HomePage.css">
 
@@ -135,6 +136,48 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/jquery.toaster.js"></script>
+  <% Boolean isTostActivate = (Boolean) request.getAttribute("isTostActivate");
+     Boolean isDeleteTostActivate = (Boolean) request.getAttribute("isDeleteTostActivate");
+  if (isTostActivate == null && isDeleteTostActivate == null) {
+        isTostActivate = false;
+        isDeleteTostActivate = false;
+  } else{%>
+      <script>
+          var interval;
+          var codetmpl = "<code>%codeobj%</code><br><code>%codestr%</code>";
+          $(document).ready(function ()
+          {
+            randomToast();
+          });
 
+          function start ()
+          {
+            if (!interval)
+            {
+                interval = setInterval(function ()
+            	{
+            		randomToast();
+            		clearInterval(interval);
+            		interval = false;
+            	}, 1500);
+            }
+          }
+
+          function randomToast ()
+          {
+            var priority = 'success';
+            <% if(isTostActivate != null && isTostActivate == true) { %>
+            	var title    = 'Successfully';
+            	var message  = 'Added Landlord!';
+            <% } else if(isDeleteTostActivate != null && isDeleteTostActivate == true) { %>
+                 var title    = 'Successfully';
+                 var message  = 'Deleted Landlord!';
+            <% }%>
+            $.toaster({ priority : priority, title : title, message : message });
+          }
+      </script>
+  <%}%>
 </body>
 </html>

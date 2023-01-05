@@ -9,6 +9,9 @@
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
 
     <!-- Main css -->
     <link rel="stylesheet" href="Admin/css/LoginStyle.css">
@@ -46,6 +49,41 @@
 
  <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+       	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    	<script src="js/jquery.toaster.js"></script>
+    	<script src="js/main.js"></script>
+      <% Boolean isNotCorrectUser = (Boolean) request.getAttribute("isNotCorrectUser");
+      if (isNotCorrectUser != null && isNotCorrectUser == true) {%>
+          <script>
+              var interval;
+              var codetmpl = "<code>%codeobj%</code><br><code>%codestr%</code>";
+              $(document).ready(function ()
+              {
+                randomToast();
+              });
+
+              function start ()
+              {
+                if (!interval)
+                {
+                    interval = setInterval(function ()
+                	{
+                		randomToast();
+                		clearInterval(interval);
+                		interval = false;
+                	}, 1500);
+                }
+              }
+
+              function randomToast ()
+              {
+                var priority = 'danger';
+                     var title    = 'Sorry';
+                     var message  = 'your username or password are incorrect - please try again.';
+                $.toaster({ priority : priority, title : title, message : message });
+              }
+          </script>
+      <%}%>
 </body>
 </html>

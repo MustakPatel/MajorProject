@@ -55,6 +55,8 @@ public class AddMaterialServlet extends HttpServlet {
 //        UserLoginInsert userLoginInsert = new UserLoginInsert(ConnectionProvider.getConnection());      //PartyDao is a class where Insertion operation will be performed
         if (addMaterials.insertMaterial(materialsEntity)) {       //if both condition true
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("MaterialServlet");        //its login page
+            boolean isMaterialTostActivate = true;
+            req.setAttribute("isMaterialTostActivate", isMaterialTostActivate);
             requestDispatcher.forward(req, resp);
         } else {
             System.out.println("failed");

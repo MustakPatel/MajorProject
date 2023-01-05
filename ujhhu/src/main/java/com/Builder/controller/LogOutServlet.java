@@ -21,11 +21,8 @@ public class LogOutServlet extends HttpServlet {
 
         HttpSession httpSession = req.getSession();
         httpSession.invalidate();
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('you are loged out Successfully');");
-        out.println("</script>");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
-        requestDispatcher.include(req, resp);
+        requestDispatcher.forward(req, resp);
 
     }
 }

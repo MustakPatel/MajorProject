@@ -55,6 +55,8 @@ public class AddTransactionServlet extends HttpServlet {
 //        UserLoginInsert userLoginInsert = new UserLoginInsert(ConnectionProvider.getConnection());      //PartyDao is a class where Insertion operation will be performed
         if (addTransactionDetails.insertTransaction(transactionDetails)) {       //if both condition true
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("partyTransactionListServlet");        //its login page
+            boolean isTransactionTostActivate = true;
+            req.setAttribute("isTransactionTostActivate", isTransactionTostActivate);
             requestDispatcher.forward(req, resp);
 
         } else {

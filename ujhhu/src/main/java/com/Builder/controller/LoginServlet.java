@@ -62,11 +62,6 @@ public class LoginServlet extends HttpServlet {
         HttpSession httpSession = req.getSession(true);
 
         if (checkLogin.isValidateData(userLogin)) {
-
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Login successfull');");
-            out.println("</script>");
-
             httpSession.setAttribute("userName", userLogin.getLoginId());
             httpSession.setMaxInactiveInterval(2000);
             ArrayList<LandlordsDetails> landlords = DisplayLandlords.getStudent();
@@ -75,13 +70,10 @@ public class LoginServlet extends HttpServlet {
             requestDispatcher.include(req, resp);
 
         } else {
-
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('User or password incorrect please try again!');");
-            out.println("</script>");
-
+            boolean isNotCorrectUser = true;
+            req.setAttribute("isNotCorrectUser", isNotCorrectUser);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("Login.jsp");        //it's login page
-            requestDispatcher.include(req, resp);
+            requestDispatcher.forward(req, resp);
 
         }
     }
